@@ -1,5 +1,12 @@
 <div (click)="handleClick()">
   <!-- <h2 [ngClass]="classes">{{ product.title }}({{ product.stock }})</h2> -->
+  <h2 [ngStyle]="styles">
+    {{ product.title | uppercase | titlecase }}({{
+      product.stock | units | uppercase
+    }})
+
+    {{ product | json }}
+  </h2>
   <button *ngIf="product.stock > 0; else nostock">SELL</button>
 </div>
 

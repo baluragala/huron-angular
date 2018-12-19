@@ -1,0 +1,9 @@
+:host-context(.pl) {
+  background-color: yellow;
+  display: block;
+}
+
+:host-context(.dl) {
+  background-color: green;
+  display: block;
+}

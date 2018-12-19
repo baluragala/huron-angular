@@ -3,7 +3,7 @@
 
 <div
   *ngFor="
-    let p of products;
+    let p of (products | async);
     let i = index;
     let e = even;
     let o = odd;

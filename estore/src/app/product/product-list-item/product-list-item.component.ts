@@ -23,6 +23,7 @@ export class ProductListItemComponent implements OnInit {
   productClicked: EventEmitter<string> = new EventEmitter();
 
   classes;
+  styles;
 
   constructor() {}
 
@@ -31,6 +32,12 @@ export class ProductListItemComponent implements OnInit {
       item: true,
       stock: this.product.stock > 0,
       nostock: this.product.stock == 0
+    };
+
+    this.styles = {
+      "background-color": "green",
+      color: "white",
+      fontWeight: "bold"
     };
   }
 

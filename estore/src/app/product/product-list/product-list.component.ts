@@ -1,4 +1,17 @@
+import { ProductService } from "./../product.service";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Observable } from "rxjs";
+
+export interface Product {
+  id: number;
+  title: string;
+  stock: number;
+  categoryId: number;
+  category?: {
+    id: number;
+    name: string;
+  };
+}
 
 @Component({
   selector: "hsg-product-list",
@@ -7,15 +20,15 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 })
 export class ProductListComponent implements OnInit {
   selectedProduct = "";
-  products = [
-    { id: 1, title: "produc1", stock: 20 },
-    { id: 2, title: "produc2", stock: 0 },
-    { id: 3, title: "produc3", stock: 20 },
-    { id: 4, title: "produc4", stock: 20 }
-  ];
-  constructor() {}
+  products:
+    | Array<Product>
+    | Promise<Array<Product>>
+    | Observable<Array<Product>>;
+  constructor(private service: ProductService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.products = this.service.getProducts();
+  }
 
   handleProductClick(title: string) {
     this.selectedProduct = title;

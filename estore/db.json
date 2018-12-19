@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    { "id": 1, "title": "produc1", "stock": 20, "categoryId": 1 },
+    { "id": 2, "title": "produc2", "stock": 0, "categoryId": 2 },
+    { "id": 3, "title": "produc3", "stock": 20, "categoryId": 2 },
+    { "id": 4, "title": "produc4", "stock": 20, "categoryId": 1 }
+  ],
+  "categories": [
+    { "id": 1, "name": "electronics" },
+    { "id": 2, "name": "grocery" }
+  ]
+}
