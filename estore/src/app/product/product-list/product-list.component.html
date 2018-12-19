@@ -1,0 +1,20 @@
+<h3>Products</h3>
+<p>Current Selected Product: {{ selectedProduct }}</p>
+
+<div
+  *ngFor="
+    let p of products;
+    let i = index;
+    let e = even;
+    let o = odd;
+    let f = first;
+    let l = last
+  "
+>
+  {{ i }}
+  <hsg-product-list-item
+    [product]="p"
+    [extras]="{ i: i, e: e, o: o, f: f, l: l }"
+    (productClicked)="handleProductClick($event)"
+  ></hsg-product-list-item>
+</div>

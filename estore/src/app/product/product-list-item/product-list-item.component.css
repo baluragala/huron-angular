@@ -1,0 +1,13 @@
+.item {
+  background-color: bisque;
+}
+
+.stock {
+  color: green;
+  font-weight: bold;
+}
+
+.nostock {
+  color: red;
+  font-weight: bold;
+}

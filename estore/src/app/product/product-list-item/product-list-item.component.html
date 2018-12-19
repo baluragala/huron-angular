@@ -1,0 +1,6 @@
+<div (click)="handleClick()">
+  <!-- <h2 [ngClass]="classes">{{ product.title }}({{ product.stock }})</h2> -->
+  <button *ngIf="product.stock > 0; else nostock">SELL</button>
+</div>
+
+<ng-template #nostock> <p>NO STOCK</p> </ng-template>
