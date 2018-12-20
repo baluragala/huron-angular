@@ -1,11 +1,11 @@
 <div (click)="handleClick()">
   <!-- <h2 [ngClass]="classes">{{ product.title }}({{ product.stock }})</h2> -->
   <h2 [ngStyle]="styles">
-    {{ product.title | uppercase | titlecase }}({{
-      product.stock | units | uppercase
-    }})
-
-    {{ product | json }}
+    <a [routerLink]="['/products/', product.id]" [queryParams]="{ token: 999 }">
+      {{ product.title | uppercase | titlecase }}({{
+        product.stock | units | uppercase
+      }})
+    </a>
   </h2>
   <button *ngIf="product.stock > 0; else nostock">SELL</button>
 </div>

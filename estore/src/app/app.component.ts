@@ -7,7 +7,7 @@ import { Productv2Service } from "./product/productv2.service";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
   encapsulation: ViewEncapsulation.Emulated,
-  providers: [{ provide: "ENVIORNMENT", useValue: "DEV" }, ProductService]
+  providers: [ProductService]
 })
 export class AppComponent {
   title = "estore";
