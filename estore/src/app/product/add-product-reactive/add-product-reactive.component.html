@@ -1,0 +1,55 @@
+<div>
+  <button (click)="load()">SET</button>
+  <form [formGroup]="addForm" action="" (submit)="doSubmit()">
+    <div>
+      <label>Product Title</label>
+      <input type="text" formControlName="title" />
+      {{ addForm.controls.title.errors | json }}
+      <p
+        *ngIf="
+          addForm.controls.title.dirty &&
+          addForm.controls.title.errors?.required
+        "
+      >
+        Title is required
+      </p>
+      <p *ngIf="addForm.controls.title.errors?.minlength">
+        Minmum 5 chars needed
+      </p>
+      <p *ngIf="addForm.controls.title.errors?.maxlength">
+        Max 20 chars allowed
+      </p>
+    </div>
+    <div><label>Product Stock</label> <input type="number" /></div>
+    <div>
+      <label>Product Caterogy</label>
+      <select>
+        <option value="MOBILES">Mobiles</option>
+        <option value="LAPTOPS">Laptops</option>
+        <option value="OTHERS">Others</option>
+      </select>
+    </div>
+    <div>
+      <div formGroupName="supplierAddress">
+        <label>Product Title</label>
+        <input type="text" formControlName="city" />
+        {{ addForm.controls.title.errors | json }}
+        <p
+          *ngIf="
+            addForm.controls.title.dirty &&
+            addForm.controls.title.errors?.required
+          "
+        >
+          Title is required
+        </p>
+        <p *ngIf="addForm.controls.title.errors?.minlength">
+          Minmum 5 chars needed
+        </p>
+        <p *ngIf="addForm.controls.title.errors?.maxlength">
+          Max 20 chars allowed
+        </p>
+      </div>
+    </div>
+    <input type="submit" value="Save" />
+  </form>
+</div>

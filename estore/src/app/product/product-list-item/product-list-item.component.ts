@@ -6,6 +6,7 @@ import {
   Output,
   EventEmitter
 } from "@angular/core";
+import { ProductService } from "../product.service";
 
 @Component({
   selector: "hsg-product-list-item",
@@ -25,7 +26,7 @@ export class ProductListItemComponent implements OnInit {
   classes;
   styles;
 
-  constructor() {}
+  constructor(private service: ProductService) {}
 
   ngOnInit() {
     this.classes = {
@@ -43,5 +44,9 @@ export class ProductListItemComponent implements OnInit {
 
   handleClick() {
     this.productClicked.emit(this.product.title);
+  }
+
+  sell() {
+    this.service.addProduct(this.product);
   }
 }

@@ -8,17 +8,26 @@ import { ProductListItemComponent } from "./product-list-item/product-list-item.
 import { ProductService } from "./product.service";
 import { HttpClientModule } from "@angular/common/http";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
+import { AddProductComponent } from "./add-product/add-product.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AddProductReactiveComponent } from "./add-product-reactive/add-product-reactive.component";
+import { ReactiveOrderFormComponent } from './reactive-order-form/reactive-order-form.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductListItemComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddProductComponent,
+    AddProductReactiveComponent,
+    ReactiveOrderFormComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([])
   ],
   providers: [{ provide: ProductService, useClass: Productv2Service }],

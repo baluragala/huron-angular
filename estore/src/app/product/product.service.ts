@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Product } from "./product-list/product-list.component";
-import { Observable, from, of } from "rxjs";
+import { Observable, from, of, Subject } from "rxjs";
 import {
   filter,
   map,
@@ -20,6 +20,12 @@ import { environment } from "src/environments/environment";
 
 @Injectable()
 export class ProductService {
+  productSubject: Subject<Product> = new Subject();
+
+  addProduct(product: Product) {
+    this.productSubject.next(product);
+  }
+
   constructor(private http: HttpClient) {}
 
   async getProducts(): Promise<Array<Product>> {

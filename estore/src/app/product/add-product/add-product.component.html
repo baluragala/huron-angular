@@ -1,0 +1,50 @@
+<div>
+  <button (click)="load()">SET</button>
+  <form #addForm="ngForm" action="" (submit)="doSubmit(addForm)">
+    <div>
+      <label>Product Title</label>
+      <input
+        type="text"
+        [(ngModel)]="title"
+        name="title"
+        required
+        minlength="5"
+        maxlength="20"
+        #titleRef="ngModel"
+      />
+      {{ titleRef.errors | json }}
+      <p *ngIf="titleRef.dirty && titleRef.errors?.required">
+        Title is required
+      </p>
+      <p *ngIf="titleRef.errors?.minlength">Minmum 5 chars needed</p>
+      <p *ngIf="titleRef.errors?.maxlength">Max 20 chars allowed</p>
+    </div>
+    <div>
+      <label>Product Stock</label>
+      <input
+        type="number"
+        [(ngModel)]="stock"
+        name="stock"
+        required
+        min="0"
+        max="999"
+        #stockRef="ngModel"
+      />
+      {{ stockRef.errors | json }}
+      <p *ngIf="stockRef.dirty && stockRef.errors?.required">
+        stock is required
+      </p>
+      <p *ngIf="stockRef.errors?.min">Minmum 0</p>
+      <p *ngIf="stockRef.errors?.max">Max 999</p>
+    </div>
+    <div>
+      <label>Product Caterogy</label>
+      <select [(ngModel)]="caterogy" name="category">
+        <option value="MOBILES">Mobiles</option>
+        <option value="LAPTOPS">Laptops</option>
+        <option value="OTHERS">Others</option>
+      </select>
+    </div>
+    <input type="submit" value="Save" />
+  </form>
+</div>

@@ -7,7 +7,7 @@
       }})
     </a>
   </h2>
-  <button *ngIf="product.stock > 0; else nostock">SELL</button>
+  <button *ngIf="product.stock > 0; else nostock" (click)="sell()">SELL</button>
 </div>
 
 <ng-template #nostock> <p>NO STOCK</p> </ng-template>
